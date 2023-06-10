@@ -1,0 +1,206 @@
+body {
+    /*   加入背景图片*/
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    /*    设置图片充满窗口*/
+    background-size: 100% 100%;
+    /*    设置图片定位为固定定位*/
+    background-attachment: fixed;
+}
+
+.logo {
+    width: 15%;
+}
+
+#login {
+    /* 登录框跟随屏幕大小居中定位 */
+    width: 1200px;
+    height: 480px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+
+    /* 阴影效果 */
+    box-shadow: 3px 3px 2px rgb(66, 65, 65);
+}
+
+#login_left {
+    /* 登录框跟随屏幕大小居中定位 */
+    width: 600px;
+    height: 480px;
+    position: relative;
+
+    /* 为login添加底色 */
+    background-color: white;
+
+    /* 设置圆角 */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    /* 磨砂效果 */
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.coorperation_name {
+    /* div 位置 */
+    position: relative;
+    width: 450px;
+    height: 50px;
+    top:85%;
+    bottom: 0;
+    left: 14%;
+    margin: 0 auto;
+
+    /* 文字样式 */
+    text-align: center;
+    color: white;
+    font-weight: 100;
+    font-size: 15px;
+}
+
+.system_name {
+    /* div 位置 */
+    position: relative;
+    width: 450px;
+    height: 50px;
+    top: 31%;
+    bottom: 0;
+    right: 0%;
+    left: 0;
+    margin: 0 auto;
+
+    /* 文字样式 */
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 10px;
+    line-height: 50px;
+
+    /* 字体发光 */
+    text-shadow: 0 0 3px #fff;
+    animation: breath .5s linear .10s infinite alternate;
+}
+
+/* 字体闪烁动画 */
+@keyframes breath {
+    0%   { opacity: 0.9; }
+    100% { opacity: 1; }
+}
+
+#login_right {
+    /* 登录框跟随屏幕大小居中定位 */
+    width: 600px;
+    height: 480px;
+    position: relative;
+    top: -100%;
+    margin-left: 50%;
+
+    /* 为login添加底色 */
+    background-color: rgb(255, 255, 255);
+
+    /* 设置圆角 */
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.input-content {
+    padding: 10%;
+}
+
+#input-usrname {
+    margin-top: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10%;
+
+    /* 边界及颜色 */
+    color: rgb(155, 155, 155);
+    border-bottom: 1px solid rgb(155, 155, 155);
+}
+
+#input-usrname i{
+    width: 3.8%;
+    padding-left: 1%;
+}
+
+#input-usrname input {
+    border: none;
+    width: 90%;
+    height: 40px;
+    font-size: large;
+}
+
+#input-pwd {
+    margin-top: 15%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 5%;
+
+    /* 边界及颜色 */
+    border-bottom: 1px solid rgb(155, 155, 155);
+    color: rgb(155, 155, 155);
+}
+
+#input-pwd input {
+    border: none;
+    width: 90%;
+    height: 40px;
+    font-size: large;
+}
+
+#login-botton {
+    width: 50%;
+    margin: 18% auto;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+/* 将登录和注册并列放置 */
+#login-botton input[type="button"] {
+    /* 位置及大小 */
+    display: block;
+    width: 100%;
+    height: 40px;
+
+    /* 颜色 */
+    background: #1c43c2;
+
+    cursor: pointer;
+
+    /* 边界 */
+    border: none;
+
+    /* 字体 */
+    text-align: center;
+    font-size: larger;
+    color: rgb(255, 255, 255);
+    /* letter-spacing: 10px; */
+}
+
+#footer {
+    /* 位置 */
+    position: absolute;
+    width: 100%;
+    height: 3.5%;
+    bottom: 0;
+    left: 0;
+    right:0;
+    padding-bottom: 0.2%;
+
+    /* 字体样式 */
+    text-align: center;
+    line-height: 10px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+
+
+

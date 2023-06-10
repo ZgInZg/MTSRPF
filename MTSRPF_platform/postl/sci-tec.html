@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="rest.css">
+    <link rel="stylesheet" href="sci-tec.css">
+</head>
+<body>
+<div id="top">
+    <div id="header">
+       <!-- <span id="time"></span> -->
+        <div class="loader">
+            <div class="outer"></div>
+            <div class="middle"></div>
+            <div class="inner"></div>
+        </div>
+        <p id="title">THE MTSRPF VISUALIZATION PLATFORM</p>
+               <!-- <p id="img"><img src="CUG.png"></p> -->
+        <div id="icon"></div>
+        <div id =time></div>
+    </div>
+</div>
+<div id="main">
+    <div id="content">
+        <ul id="function1">
+<!--            这里ul的function1仅仅是为了占位使用，没有任何意义-->
+            <p>Function</p>
+           <!-- <li id="function1" >
+               Digital Twins
+           </li> -->
+            <li id="function2">
+                Man-Machine Interaction
+            </li>
+            <li id="function3">
+                Command-End
+            </li>
+            <li id="function4">
+                Operation-End
+            </li>
+            <li id="function5">
+                Historical Risk Record
+            </li>
+            <li id="function6" style="visibility: hidden;">
+                About Us
+            </li>
+        </ul>
+    </div>
+    <div id="display">
+        <!--        <img src="assets/css/logo.png">-->
+        <iframe id="fra">
+
+        </iframe>
+    </div>
+    <div id="tools">
+        <ul>
+            <p>Tools</p>
+            <li id="tool1">
+                Serial Tool
+            </li>
+            <li id="tool2">
+                MCN-lite
+            </li>
+            <li id="tool3">
+                CUG
+            </li>
+            <li id="tool4">
+                GSY Lab
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="bottom">
+    <div id="menu">
+        <ul>
+            <li id="menu1">
+                <a><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    &nbsp;&nbsp;&nbsp;Settings
+                </a>
+            </li>
+            <li id="menu2">
+                <a><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    &nbsp;&nbsp;&nbsp;Get help
+                </a>
+            </li>
+           <li id="menu3">
+               <a><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                   &nbsp;&nbsp;&nbsp;Log out
+               </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div id="message">
+        <div id="hoist">
+            <div>Lifting Direction</div>
+            <div id="hoist_msg"></div>
+        </div>
+        <div id="slew">
+            <div>Slewing Direction</div>
+            <div id="slew_msg"></div>
+        </div>
+        <div id="stability">
+            <div>Hook Stability</div>
+            <div id="stability_msg"></div>
+        </div>
+        <div id="signal">
+            <div>Hand Signal</div>
+            <div id="signal_msg", style="vertical-align: middle;"></div>
+        </div>
+        <div id="perception">
+            <div>Comparative Result</div>
+            <div id="perception_msg", style="color: green;"></div>
+        </div>
+    </div>
+
+    <div id="connect">
+        <button id="conbtn">
+            Connect
+        </button>
+    </div>
+</div>
+
+<script>
+
+    function updateTime() {
+        var currentDate  = new Date();
+        var options = { hour12: false };
+        var dateString = currentDate.toLocaleDateString();
+        var timeString = currentDate.toLocaleTimeString('en-US', options);
+        document.getElementById("time").innerHTML = dateString + "<br>" + timeString;
+    }
+    // 每秒钟更新一次时间
+    setInterval(updateTime, 1000);
+
+    // url定义
+    var fra_url=document.getElementById('fra');
+    var digtal_twin_url='';
+    var collaborative_url='';
+    var operation_end_url='';
+    var safety_risk_log_url='';
+    var about_us_url='';
+
+    var func1 = document.getElementById('function1');
+    var func2 = document.getElementById('function2');
+    var func3 = document.getElementById('function3');
+    var func4 = document.getElementById('function4');
+    var func5 = document.getElementById('function5');
+    var func6 = document.getElementById('function6');
+    let funarr = [func1,func2,func3,func4,func5,func6]
+    let funcolor = [func1.style.background,func2.style.background,func3.style.background,
+        func4.style.background,func5.style.background,func6.style.background]
+    function colorfull(){
+        for(var i=1;i<6;++i){
+            funarr[i].style.background=funcolor[i]
+        }
+    }
+
+    // func1.onclick = function(){
+    //     colorfull();
+    //     func1.style.background='#202020';
+    //
+    // }
+
+    func2.onclick = function(){
+        colorfull();
+        func2.style.background='rgb(16,17,41)';
+        fra_url.src='sub/man_machine.html';
+    }
+
+    func3.onclick = function(){
+        colorfull();
+        func3.style.background='rgb(16,17,41)';
+        fra_url.src='sub/CommandEnd.html';
+    }
+
+    func4.onclick = function(){
+        colorfull();
+        func4.style.background='rgb(16,17,41)';
+        fra_url.src='sub/OperationEnd.html';
+    }
+
+    func5.onclick = function(){
+        colorfull();
+        func5.style.background='rgb(16,17,41)';
+        fra_url.src='sub/Log.html'
+    }
+
+    // func6.onclick = function(){
+    //     colorfull();
+    //     func6.style.background='rgb(16,17,41)';
+
+    // }
+
+    var tool1 = document.getElementById('tool1');
+    var tool2 = document.getElementById('tool2');
+    var tool3 = document.getElementById('tool3');
+    var tool4 = document.getElementById('tool4');
+    let tolarr = [tool1,tool2,tool3,tool4]
+    let tolcolor = [tool1.style.background,tool2.style.background,tool3.style.background,
+        tool4.style.background]
+    function colorfull(){
+        for(var i=1;i<4;++i){
+            tolarr[i].style.background=tolcolor[i]
+        }
+    }
+
+    tool1.onclick = function(){
+        colorfull();
+        tool1.style.background='rgb(16,17,41)';
+        window.alert("This feature is being maintained");
+        fra_url.src='sub/serial.html';
+    }
+
+    tool2.onclick = function(){
+        colorfull();
+        tool2.style.background='rgb(16,17,41)';
+        fra_url.src='sub/mcn_lite.html';
+    }
+
+    tool3.onclick = function(){
+        colorfull();
+        tool3.style.background='rgb(16,17,41)';
+        fra_url.src='sub/cug.html';
+    }
+
+    tool4.onclick = function(){
+        colorfull();
+        tool4.style.background='rgb(16,17,41)';
+        fra_url.src='sub/gsy_lab.html'
+    }
+
+    var menu3 = document.getElementById('menu3');
+    menu3.onclick = function(){
+        window.location.href = "../index.html";
+    }
+
+    // websocket
+    var oConnect=document.getElementById('conbtn');
+    var websocket=null;
+    oConnect.onclick=function(){
+        if (document.getElementById('conbtn').innerHTML==='Connected') {
+            document.getElementById('conbtn').innerHTML = "Connect";
+            fra_url.src="";
+            oConnect.style.background = 'linear-gradient(45deg, #00a6ff, #112233)';
+            document.getElementById('icon').style.borderBlockColor='#3cefff'
+            document.getElementsByClassName('inner')[0].style.borderBlockColor='#3cefff'
+            document.getElementsByClassName('outer')[0].style.borderBlockColor='#3cefff'
+            document.getElementsByClassName('middle')[0].style.borderBlockColor='#3cefff'
+            return;
+        }
+        else{
+            document.getElementById('conbtn').innerHTML = "Connected";
+            oConnect.style.background = 'linear-gradient(45deg, #00ff00, #001100)';
+            document.getElementById('icon').style.borderBlockColor='#00ff00'
+            document.getElementsByClassName('inner')[0].style.borderBlockColor='#00ff00'
+            document.getElementsByClassName('outer')[0].style.borderBlockColor='#00ff00'
+            document.getElementsByClassName('middle')[0].style.borderBlockColor='#00ff00'
+        }
+        var hoist_msg = document.getElementById('hoist_msg');
+        var slew_msg = document.getElementById('slew_msg');
+        var stability_msg = document.getElementById('stability_msg');
+        var signal_msg = document.getElementById('signal_msg');
+        var perception_msg = document.getElementById('perception_msg');
+
+
+        var operation_name;
+        var gesture_name;
+        var hook_name;
+        var rotation_name;
+
+        websocket=new WebSocket('ws://192.168.137.1:2000');
+        // websocket=new WebSocket('ws://127.0.0.1:2000/');
+
+        websocket.onopen=function(){}
+
+        // <!--收到消息后触发-->
+        websocket.onmessage=function(evt){
+
+            console.log("Received message: " + evt.data);
+
+            code = evt.data;
+
+            // hook lifting direction
+            switch (code[0]){
+                case "0": hook_name = "No lifting"; break;
+                case "1": hook_name = "Rising"; break;
+                case "2": hook_name = "Lowering"; break;
+            }
+
+            // rotation direction
+            switch (code[1]){
+                case "0": rotation_name = "No Slewing"; break;
+                case "1": rotation_name = "Slewing Left"; break;
+                case "2": rotation_name = "Slewing Right"; break;
+            }
+
+            // hook kinematic stability
+            switch (code[2]){
+                case "0": Hook_stability = "unstable"; break;
+                case "1": Hook_stability = "stable"; break;
+            }
+
+            // hand signal
+            switch (code[3]){
+                case "0": gesture_name = "No command"; break;
+                case "1": gesture_name = "Lower the load at a steady rate"; break;
+                case "2": gesture_name = "Upper the load at a steady rate"; break;
+                case "3": gesture_name = "Stop normally"; break;
+                case "4": gesture_name = "Stand"; break;
+                case "5": gesture_name = "Slewing left"; break;
+                case "6": gesture_name = "Slewing right"; break;
+            }
+
+            // comparative result
+            switch (code[4]){
+                case "0": operation_name = "Correct"; break;
+                case "1": operation_name = "I-Level"; break;
+                case "2": operation_name = "II-Level"; break;
+                case "3": operation_name = "III-Level"; break;
+            }
+
+            perception_msg.innerHTML = operation_name
+            hoist_msg.innerHTML = hook_name
+            stability_msg.innerHTML = Hook_stability
+            slew_msg.innerHTML = rotation_name
+            signal_msg.innerHTML = gesture_name
+
+        };
+
+
+    };
+</script>
+
+</body>
+</html>

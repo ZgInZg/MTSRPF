@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+
+    <style>
+        body{
+            background-color: white;
+        }
+
+        #text{
+            font-size: 22px;
+            line-height: 1.5; /* 调整行高，可以尝试不同的值 */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        caption{
+            font-size: 22px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e3e3e3;
+        }
+    </style>
+
+    <body>
+        <div>
+            <p id="text">The hand signals in crane lifts were determined by the standards of nongovernmental and governmental organizations. Several standards are enumerated in Table 1. Since ISO 16715:2014 was the main standard, the hand signals in this standard were initially selected to be perceived using computer vision.</p>
+            <table>
+                <caption>Table 1. Standards for hand signals in crane lifts.</caption>
+
+                <thead>
+                    <tr>
+                        <th>Promulgator</th>
+                        <th>Number</th>
+                        <th>Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>International Organization for Standardization (ISO)</td>
+                        <td>ISO 16715:2014</td>
+                        <td>Cranes-Hand signals used with cranes</td>
+                    </tr>
+
+                    <tr>
+                        <td>Occupational Safety and Health Administration (OSHA)</td>
+                        <td>1926.1422</td>
+                        <td>Signals-hand signal chart</td>
+                    </tr>
+
+                    <tr>
+                        <td>American Society of Mechanical Engineers (ASME)</td>
+                        <td>ASME B30.3</td>
+                        <td>Tower Cranes</td>
+                    </tr>
+
+                    <tr>
+                        <td>American Society of Mechanical Engineers (ASME)</td>
+                        <td>ASME B30.5</td>
+                        <td>Mobile and Locomotive Cranes</td>
+                    </tr>
+
+                    <tr>
+                        <td>China's State Administration for Market Regulation (SAMR) and China’s Standardization Administration</td>
+                        <td>GB/T 5082-2019</td>
+                        <td>Cranes-Hand signals</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p id="text">The types of hand signals cannot be well-recognized using only video sequences’ spatial information, so temporal information between video sequences should be included. A 3D convolution is an extension of a 2D convolution to include the time axis. The feature image group obtained from a 3D convolutional kernel contains the spatial-temporal information of the video that cannot be extracted using the 2D convolutional kernel[49]. Therefore, a 3D convolutional neural network was selected as a computer vision technique to recognize hand signals. MTSRPF should provide rapid alerting to the operator in case of improper operations. Therefore, the MTSRPF utilized edge computing devices for data processing. The recognition speed of hand signals is crucial, so a neural network with high recognition speed should be developed. However, many 3D-like convolutional neural networks exhibit low recognition speed when deployed on edge computing devices, as shown in Table 2.</p>
+            <table>
+                <caption>Table 2 Some 3D-like convolutional neural networks recognition accuracy and time.</caption>
+
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Accuracy</th>
+                        <th>Time (ms)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>C3D</td>
+                        <td>95.77%</td>
+                        <td>-</td>
+                    </tr>
+
+                    <tr>
+                        <td>R3D</td>
+                        <td>96.97%</td>
+                        <td>630</td>
+                    </tr>
+
+                    <tr>
+                        <td>R(2+1)D</td>
+                        <td>97.60%</td>
+                        <td>650</td>
+                    </tr>
+
+                    <tr>
+                        <td>MC3</td>
+                        <td>96.52%</td>
+                        <td>659</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>
+                Note: the test dataset was the crane hand signal dataset, and the test device was the NVIDIA Jetson TX2. The above models did not use deep learning inference optimizers such as TensorRT. The C3D recognition time was unavailable because it was too large to run on the TX2.
+            </p>
+        </div>
+    </body>
+</html>

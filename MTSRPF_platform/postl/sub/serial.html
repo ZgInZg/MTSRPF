@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+</style>
+
+
+<body>
+
+</body>
+
+<script>
+  // 检查浏览器是否支持web serial api
+  console.log("start")
+  if ("serial" in navigator) {
+    // 请求用户选择一个serial端口
+    
+    const button = document.querySelector("button");
+    button.addEventListener("click", async () => {
+      try {
+        // 弹出对话框让用户选择一个serial端口
+        const port = await navigator.serial.requestPort();
+        // 打开选择的serial端口
+        await port.open({ baudRate: 9600 });
+        // TODO: 读取和写入serial端口
+      } catch (error) {
+        // 处理错误
+        console.error(error);
+      }
+    });
+  } else {
+    // 提示用户浏览器不支持web serial api
+    alert("Web Serial API is not supported by your browser.");
+  }
+  // 获取一个reader来读取port.readable
+  const reader = port.readable.getReader();
+  // 定义一个异步函数来循环读取数据
+  async function readLoop() {
+    while (true) {
+      try {
+        // 等待接收到数据
+        const { value, done } = await reader.read();
+        // 如果done为true，表示serial端口已经关闭或没有数据可读
+        if (done) {
+          // 释放reader的锁定
+          reader.releaseLock();
+          break;
+        }
+        // 如果value不为空，表示接收到了数据，value是一个Uint8Array对象
+        if (value) {
+          // TODO: 处理接收到的数据
+          console.log(value);
+        }
+      } catch (error) {
+        // 处理错误
+        console.error(error);
+      }
+    }
+  }
+  // 启动读取循环
+  readLoop();
+
+  // 获取一个writer来写入port.writable
+  const writer = port.writable.getWriter();
+  // 定义一个异步函数来发送数据
+  async function write(data) {
+    try {
+      // 等待写入数据，data是一个Uint8Array对象
+      await writer.write(data);
+      // TODO: 处理写入成功的情况
+      console.log("Data sent successfully.");
+    } catch (error) {
+      // 处理错误
+      console.error(error);
+    }
+  }
+  // 调用write函数来发送数据
+  write(new Uint8Array([104, 101, 108, 108, 111])); // 发送"hello"
+</script>
+</html>

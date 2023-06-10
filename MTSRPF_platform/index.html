@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--导入css文件-->
+<link rel="stylesheet" href="resource/modified.css">
+<!--导入js-->
+<script src="jiaoben.js"></script>
+<!--引用外部图标-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>loading</title>
+</head>
+
+<body>
+    <div>
+
+        <!-- 登录窗口 -->
+        <div id="login">
+            <div id="login_left">
+                <div class="system_name">
+                    <h1 class="system_name">MTSRPF VISUALIZATION PLATFORM</h1>
+                </div>
+            </div>
+    
+            <div id="login_right">
+                <form class="login_form", action="login" method="post">
+                    <div class="input-content">
+                        <div id="input-usrname">
+                            <i class="fa fa-user"></i>  <!-- 增加账号图标 -->
+                            <input type="text" name="username" placeholder="Account">
+                        </div>
+                        <div id="input-pwd">
+                            <i class="fa fa-key"></i>   <!-- 增加密码图标 -->
+                            <input type="password" name="password" placeholder="Password">
+                        </div>
+                        <div id="login-botton">
+                            <input type="button" name="load" value="Log In">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        
+        <!-- <div class="coorperation_name">
+            <h1 class="coorperation_name">武汉智地有声科技有限公司</h1>
+        </div> -->
+
+        <!--设置copyright-->
+        <div id="footer">
+            <p> Copyright © 2021-2023 China University of Geosciences (Wuhan). All Rights Reserved.</p>
+        </div>
+    </div>
+
+    
+    <script>    
+        /* 当用户名=admin，密码等于admin，跳转网页，按回车键也可以跳转 */
+        var login = document.getElementById("login").getElementsByTagName("input")[2];
+        login.onclick = function () {
+            var username = document.getElementById("login").getElementsByTagName("input")[0].value;
+            var password = document.getElementById("login").getElementsByTagName("input")[1].value;
+            if (username == "admin" && password == "admin") {
+                window.location.href = "postl/sci-tec.html";
+            } else {
+                alert("用户名或密码错误");
+            }
+        }
+    </script>
+</body>
+</html>

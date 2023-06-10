@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        background-color: white;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #e3e3e3;
+    }
+
+    img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+</style>
+
+
+<body>
+    <table id="log">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Time</th>
+                <th>Location</th>
+                <th>Img</th>
+                <th>Event</th>
+                <th>Alert Level</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+
+    <script>
+        var filepath = "log/";
+        var tbody = document.querySelector("#log tbody");
+        var file = ["202304280053", "202304280052", "202304280051", "202304280050", "202304280049"
+        , "202304280048", "202304280047", "202304280046"]
+        var rows="";
+        var row_arr = [];
+        var len = file.length
+        for (var i = 0; i<len; i++){
+            var fileURL = "";
+            fileURL += filepath + file[i] +".json";
+            console.log(fileURL)
+            let request = new XMLHttpRequest();
+            request.open("GET", fileURL, true);
+            request.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200){
+                    var jsonData = request.responseText;
+                    var data = JSON.parse(jsonData);
+                    
+                    // tbody.innerHTML = ""; // 清空表格内容
+                    
+                    var code = data.code;
+                    var event;
+                    var hand_signal;
+                    var motion_state = "";
+                    // hook lifting direction
+                    switch (code[0]){
+                        case "0": hook_name = "no lifting"; break;
+                        case "1": hook_name = "rising"; break;
+                        case "2": hook_name = "lowering"; break;
+                    }
+
+                    // rotation direction
+                    switch (code[1]){
+                        case "0": rotation_name = "no slewing"; break;
+                        case "1": rotation_name = "slewing left"; break;
+                        case "2": rotation_name = "slewing right"; break;
+                    }
+
+                    // hook kinematic stability
+                    switch (code[2]){
+                        case "0": Hook_stability = "stable"; break;
+                        case "1": Hook_stability = "unstable"; break;
+                    }
+
+                    // hand signal
+                    switch (code[3]){
+                        case "0": gesture_name = "no command"; break;
+                        case "1": gesture_name = "lower the load at a steady rate"; break;
+                        case "2": gesture_name = "upper the load at a steady rate"; break;
+                        case "3": gesture_name = "stop normally"; break;
+                        case "4": gesture_name = "slewing left"; break;
+                        case "5": gesture_name = "slewing right"; break;
+                    }
+
+                    // comparative result
+                    switch (code[4]){
+                        case "0": operation_name = "correct"; break;
+                        case "1": operation_name = "I"; break;
+                        case "2": operation_name = "II"; break;
+                        case "3": operation_name = "III"; break;
+                    }
+
+                    if (code[0]=="0" && code[1]=="0" && code[2]=="0"){
+                        motion_state = "\"staic\"";
+                    }
+                    if (code[0] != "0"){
+                    motion_state += "\""+hook_name+"\"";
+                    }
+                    if (code[1] != "0"){
+                    motion_state += "\""+rotation_name+"\"";
+                    }
+                    if (code[2] != "0"){
+                    motion_state += "\""+Hook_stability+"\"";
+                    }
+                    
+                    hand_signal = gesture_name;
+                    event = "The hand signal is <span style=\"color: red;\">\"" + hand_signal + "\"</span>; " + "The crane motion is <span style=\"color: red;\">" + motion_state +"</span>";
+
+                    var row = "<tr>";
+                    row += "<td>" + data.number + "</td>";
+                    row += "<td>" + data.time + "</td>";
+                    row += "<td>" + data.location + "</td>";
+                    row += "<td>" + "<img src=\"log\\" + data.img + "\"></td>";
+                    row += "<td>" + event + "</td>";
+                    row += "<td><span style=\"color: red;\">" + operation_name + "</span></td>";
+                    row += "</tr>\n";
+                    
+
+                    rows += row;
+                    if (i = len-1){
+                        tbody.innerHTML = rows;
+                    }
+                    
+                }
+            };
+            
+            request.send();
+        }
+        
+    </script>
+</body>
+</html>
